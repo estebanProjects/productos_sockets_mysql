@@ -46,6 +46,32 @@ app.post('/', async(req, res) => {
     res.redirect('/');
 })
 
+// Actualizar
+app.put('/update/:id', async(req, res) => {
+    await knex("products")
+        .where({id: req.params.id})
+        .update({title: req.body.title, price: req.body.price, thumbnail: req.body.thumbnail})
+        .then((json) => {
+            res.send({data:json})
+        })
+        .catch((err) => {
+            res.send("Error al actualizar usuario")
+        })
+})
+
+// Delete
+app.delete('/delete/:id', async (req, res) => {
+    await knex("products")
+        .where({id: req.params.id})
+        .del()
+        .then((json) => {
+            res.send({data: "Producto eliminado"})
+        })
+        .catch((err) => {
+            res.send("Error al eliminar producto")
+        })
+})
+
 
 // Conexion Socket 
 io.on("connection", (socket) => {
