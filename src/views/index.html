@@ -12,6 +12,11 @@
 </head>
 <body>
 
+    <h3><%= msjbienvenida %></h3>
+    <button onclick="location.href='/logout'">
+        Log-Out
+    </button>
+
     <div>
         <form action="/" method="post" class="form-product">
             <label for="">Nombre del producto</label>
@@ -32,7 +37,7 @@
             <h3>Centro de Mensajes</h3>
             <form action="/" class="">
                 <div class="box-input_correo">
-                    <input type="text" id="input_correo" class="input_correo" value="Alfredo">
+                    <input type="text" id="input_correo" class="input_correo" value="<%= username %>">
                 </div>
                 <hr>
                 <div class="box_mensajes" id="box_mensajes">
