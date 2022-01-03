@@ -17,7 +17,7 @@ const knex = require("knex")({
         table.float("price"),
         table.string("thumbnail")
     })
-    .then(() => {
+    .then(() => { 
       console.log("Tabla creada! :D");
     })
     .catch((err) => {
